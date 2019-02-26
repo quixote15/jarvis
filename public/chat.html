@@ -3,6 +3,9 @@
         <title>Botkit Anywhere</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
         <script src="https://cdn.rawgit.com/showdownjs/showdown/1.7.4/dist/showdown.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+       
         <link rel="stylesheet" href="css/styles.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -22,6 +25,10 @@
             <section>
                 <div id="message_list">
                     <div id="message_template">
+                        
+                        {{#if (eq message.type "message")}}
+                        <img src="https://www.jarvis.exchange/img/jarvis_website_logo.jpg" style="width:50px; height:50px; position:relative; left:0; border-radius: 25px;" >
+                        {{/if}}
                         <div class="message {{message.type}}">
                             {{#if message.isTyping}}
                               <div class="typing-indicator">
@@ -30,7 +37,9 @@
                                 <span></span>
                               </div>
                             {{/if}}
+                            
                             {{{message.html}}}
+                              
 
                             {{#if message.open_link}}
                               <a href="{{{message.open_link}}}" target="_blank" class="button_message">{{#if message.link_title}}{{message.link_title}}{{else}}{{message.open_link}}{{/if}}</a>
@@ -58,6 +67,11 @@
             </footer>
         </div>
         </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
+        <script src="handlebars-helpers.js" ></script>
         <script src="client.js"></script>
+
     </body>
 </html>
