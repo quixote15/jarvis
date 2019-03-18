@@ -162,14 +162,18 @@ a.button {
       color: blue;
       font-weight: bold; }
   #message_window form {
-    display: flex;
+  /*  display: flex;
     margin: 0;
-    padding: 0.25rem; }
+    padding: 0.25rem; 
+  */
+  }
   #message_window #message_template {
     display: none; }
   #message_window .message {
-    font-size: 14px;
+    font-size: 1.5rem;
     padding: 0.5rem;
+    font-family: "Source Sans Pro",Helvetica,Arial,Sans-Serif;
+    line-height: 2rem;
     background: #F0F0F0;
     color: #333;
     border-radius: 5px;

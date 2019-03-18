@@ -227,6 +227,9 @@
         var that = this;
         if (!that.next_line) {
           that.next_line = document.createElement('div');
+          //TODO: FIND BETTER WAY TO MODIFY CLASS
+          that.next_line.className = "valign-wrapper";
+
           that.message_list.appendChild(that.next_line);
         }
         if (message.text) {

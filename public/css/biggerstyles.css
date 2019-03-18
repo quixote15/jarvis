@@ -43,9 +43,9 @@ html,body {
 }
 
 #message_window form {
-    display: flex;
+   /* display: flex;
     margin: 0;
-    padding: 0.25rem;
+    padding: 0.25rem;*/
 }
 #message_window footer input[type="text"] {
     flex-grow: 1;

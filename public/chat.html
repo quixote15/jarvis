@@ -28,12 +28,12 @@
 
             <section>
                 <div id="message_list">
-                    <div id="message_template">
+                    <div id="message_template" >
                         
                         {{#if (eq message.type "message")}}
                         <img src="https://www.jarvis.exchange/img/jarvis_website_logo.jpg" style="width:50px; height:50px; position:relative; left:0; border-radius: 25px;" >
                         {{/if}}
-                        <div class="message {{message.type}}">
+                        <div class="message {{message.type}} ">
                             {{#if message.isTyping}}
                               <div class="typing-indicator">
                                 <span></span>
@@ -64,21 +64,22 @@
             <div id="message_replies">
             </div>
             <footer>
-                <form onsubmit="Botkit.send(Botkit.input.value, event)">
+                <div class="row"> 
+                <form onsubmit="Botkit.send(Botkit.input.value, event)" class="col s12">
                   <div class="row valign-wrapper">
                       <div class="input-field col s10">
                           <input  type="text" class="validate" autocomplete="off" id="messenger_input" placeholder="Type here..." >
                       </div>
-                      <div class="s2">
-                          <a class="large" type="submit">
-                                  <i class="pink accent-3 material-icons dp48">send</i>
+                      <div class="input-field col s2">
+                          <a class="btn large" type="submit">
+                                  <i class=" accent-3 material-icons dp48">send</i>
                           </a>
-
+                          
                       </div>
-
                   </div>
 
                 </form>
+                </div>
             </footer>
         </div>
         </div>
