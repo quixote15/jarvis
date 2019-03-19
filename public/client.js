@@ -229,7 +229,7 @@
         if (!that.next_line) {
           that.next_line = document.createElement('div');
           //TODO: FIND BETTER WAY TO MODIFY CLASS
-          if(message.type === "message")
+          if(message.isTyping )
           that.next_line.className = "valign-wrapper";
 
           that.message_list.appendChild(that.next_line);
