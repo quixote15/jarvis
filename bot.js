@@ -59,7 +59,7 @@ require("fs").readdirSync(normalizedPath).forEach(function(file) {
   require("./skills/" + file)(controller);
 });
 
-console.log('I AM ONLINE! COME TALK TO ME: http://localhost:' + (process.env.PORT || 3000))
+console.log('I AM ONLINE! COME TALK TO ME: http://localhost:' + (process.env.PORT || 1080))
 
 function usage_tip() {
     console.log('~~~~~~~~~~');

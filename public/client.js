@@ -55,7 +55,7 @@
 
       },
       send: function(text, e) {
-	var that = this;
+	      var that = this;
         if (e) e.preventDefault();
         if (!text) {
           return;
