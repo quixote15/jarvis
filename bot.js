@@ -43,6 +43,9 @@ var debug = require('debug')('botkit:main');
  * Objeto de configuração do controller botkit
  */
 var bot_options = {
+    replyWithTyping: true,
+};
+var slack_options = {
     clientId: process.env.clientId || null,
     clientSecret: process.env.clientSecret  || null,
     clientSigningSecret: process.env.clientSigningSecret  || null,
@@ -60,12 +63,15 @@ if (process.env.MONGO_URI) {
   // create a custom db access method
   var mongostorage = require('botkit-storage-mongo')({mongoUri: process.env.MONGO_URI});
   bot_options.storage = mongostorage;
+  slack_options.storage = mongostorage;
 } else {
     bot_options.json_file_store = __dirname + '/.data/db/'; // store user data in a simple JSON format
+    slack_options.json_file_store = __dirname + '/.data/db/'; // store user data in a simple JSON format
 }
 
 // Create the Botkit controller, which controls all instances of the bot.
 var controller = Botkit.socketbot(bot_options);
+var slack_controller = Botkit.slackbot(slack_options);
 
 // Set up an Express-powered webserver to expose oauth and webhook endpoints
 var webserver = require(__dirname + '/components/express_webserver.js')(controller);
@@ -79,9 +85,15 @@ require(__dirname + '/components/plugin_identity.js')(controller);
 // Open the web socket server
 controller.openSocketServer(controller.httpserver);
 
-// Start the bot brain in motion!!
+/**
+ * Start the bots brains in motion!!
+ */
 controller.startTicking();
+slack_controller.startTicking();
 
+/**
+ * Web bot skills configuration
+ */
 var normalizedPath = require("path").join(__dirname, "skills");
 require("fs").readdirSync(normalizedPath).forEach(function(file) {
   require("./skills/" + file)(controller);
