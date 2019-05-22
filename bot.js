@@ -15,23 +15,51 @@
     -> http://howdy.ai/botkit
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+/**
+ * Configuração das variáveis de ambiente
+ * Mongo, API_KEY, Token, etc.
+ */
 var env = require('node-env-file');
 env(__dirname + '/.env');
 
+/**
+ * Verificar se as chaves do webhook do Slack foram declaradas ou carregadas.
+ */
+if(!process.env.clientId || !process.env.clientSecret || !process.env.PORT){
+  usage_tip();
+}
 
+
+/**
+ * Importa a instancia do  Botkit
+ */
 var Botkit = require('botkit');
 var debug = require('debug')('botkit:main');
 
+
+/**
+ * Objeto de configuração do controller botkit
+ */
 var bot_options = {
+    clientId: process.env.clientId || null,
+    clientSecret: process.env.clientSecret  || null,
+    clientSigningSecret: process.env.clientSigningSecret  || null,
+    scopes:['bot'],
+    studio_token: process.env.studio_token  || null,
+    studio_command_uri: process.env.studio_command_uri  || null,
     replyWithTyping: true,
 };
 
-// Use a mongo database if specified, otherwise store in a JSON file local to the app.
-// Mongo is automatically configured when deploying to Heroku
+/*
+ Use a mongo database if specified, otherwise store in a JSON file local to the app.
+ Mongo is automatically configured when deploying to Heroku
+ */
 if (process.env.MONGO_URI) {
   // create a custom db access method
-  var db = require(__dirname + '/components/database.js')({});
-  bot_options.storage = db;
+  var mongostorage = require('botkit-storage-mongo')({mongoUri: process.env.MONGO_URI});
+  bot_options.storage = mongostorage;
 } else {
     bot_options.json_file_store = __dirname + '/.data/db/'; // store user data in a simple JSON format
 }
@@ -64,7 +92,14 @@ console.log('I AM ONLINE! COME TALK TO ME: http://localhost:' + (process.env.POR
 function usage_tip() {
     console.log('~~~~~~~~~~');
     console.log('Botkit Starter Kit');
-    console.log('Execute your bot application like this:');
+    console.log('For Web: Execute your bot application like this:');
     console.log('PORT=3000 node bot.js');
+    console.log('~~~~~~~~~~');
+
+    console.log('~~~~~~~~~~');
+    console.log('Botkit Starter Kit');
+    console.log('For Slackbot: Execute your bot application like this:');
+    console.log('clientId=<MY SLACK CLIENT ID> clientSecret=<MY CLIENT SECRET> PORT=3000 node bot.js');
+    console.log('Get Slack app credentials here: https://api.slack.com/apps')
     console.log('~~~~~~~~~~');
 }
