@@ -15,4 +15,9 @@ module.exports = function(webserver, controller) {
 
     });
 
+    webserver.get('/test',function(req,res){
+        console.log('Slack bot is working and responding !!');
+        res.send('Slack bot is working and responding !!');
+    });
+
 }

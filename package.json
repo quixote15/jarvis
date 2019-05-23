@@ -11,6 +11,7 @@
     "botkit": "^0.7.0",
     "botkit-rasa": "^1.0.7",
     "botkit-storage-mongo": "^1.0.6",
+    "cookie-parser": "^1.4.4",
     "debug": "^3.2.6",
     "express": "^4.16.4",
     "express-hbs": "^1.0.4",

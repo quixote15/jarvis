@@ -83,7 +83,7 @@ function usage_tip() {
     console.log('~~~~~~~~~~');
     console.log('Botkit Starter Kit');
     console.log('For Web: Execute your bot application like this:');
-    console.log('PORT=3000 node bot.js');
+    console.log('PORT=' + process.env.PORT + ' node bot.js');
     console.log('~~~~~~~~~~');
 
     console.log('~~~~~~~~~~');
@@ -91,5 +91,6 @@ function usage_tip() {
     console.log('For Slackbot: Execute your bot application like this:');
     console.log('clientId=<MY SLACK CLIENT ID> clientSecret=<MY CLIENT SECRET> PORT=3000 node bot.js');
     console.log('Get Slack app credentials here: https://api.slack.com/apps')
+    console.log('PORT=' + process.env.SLACK_PORT + ' node bot.js');
     console.log('~~~~~~~~~~');
 }
