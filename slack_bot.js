@@ -39,4 +39,32 @@ module.exports = (controller)=>{
 
 
 
+    
+
+    controller.hears('hear_message', 'direct_message,direct_mention,mention', function(bot, message) {
+        console.log('ouviu')
+        controller.storage.teams.save({id: message.team, foo:'bar'}, function(err) { console.log(err) });
+    });
+
+/**
+ * 
+     controller.hears(
+         ['hello', 'hi', 'greetings'],
+         ['direct_mention', 'mention', 'direct_message'],
+         function(bot,message) {
+             bot.reply(message,'Hello!');
+         }
+     );
+ */
+
+controller.hears(['hello', 'hi'], 'direct_message,direct_mention,mention', function(bot, message) {
+    controller.storage.users.get(message.user, function(err, user) {
+            if (user && user.name) {
+                bot.reply(message, 'Hello ' + user.name + '!!');
+            } else {
+                bot.reply(message, 'Hello.');
+            }
+        });
+    });
+
 }
