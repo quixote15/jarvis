@@ -34,7 +34,7 @@ module.exports = (controller)=>{
      */
     var normalizePath = require('path').join(`${__dirname}/slack_skills`);
     require('fs').readdirSync(normalizePath).forEach((file)=>{
-        require(`/slack_skills/${file}`)(controller);
+      ///  require(`/slack_skills/${file}`)(controller);
     });
 
 
