@@ -73,6 +73,9 @@ if (process.env.MONGO_URI) {
 var controller = Botkit.socketbot(bot_options);
 var slack_controller = Botkit.slackbot(slack_options);
 
+require('./web_bot.js')(controller);
+require('./slack_bot.js')(slack_controller);
+
 
 console.log('I AM ONLINE! COME TALK TO ME: http://localhost:' + (process.env.PORT || 1080))
 
