@@ -11,7 +11,17 @@ module.exports = function(controller) {
         //console.log(replies)
         replies.forEach(answer => {
             console.log('text:', answer.text || answer.image)
-            bot.reply(message,answer.text || answer.image)
+           const {text, image} = answer;
+           const reply = {
+              text,
+              files: [
+                {
+                  url: image,
+                  image: !!image
+                }
+              ]
+            };
+            bot.reply(message,reply)
 
         })
         //bot.startConversation()
