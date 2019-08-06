@@ -55,6 +55,15 @@ var slack_options = {
     replyWithTyping: true,
 };
 
+var twilioOptions = {
+  account_sid: process.env.TWILIO_ACCOUNT_SID,
+  auth_token: process.env.TWILIO_AUTH_TOKEN,
+  twilio_number: process.env.TWILIO_NUMBER
+}
+
+
+
+
 /*
  Use a mongo database if specified, otherwise store in a JSON file local to the app.
  Mongo is automatically configured when deploying to Heroku
@@ -72,10 +81,11 @@ if (process.env.MONGO_URI) {
 // Create the Botkit controller, which controls all instances of the bot.
 var controller = Botkit.socketbot(bot_options);
 var slack_controller = Botkit.slackbot(slack_options);
+var twilioController = Botkit.twiliosmsbot(twilioOptions);
 
 require('./web_bot.js')(controller);
-require('./slack_bot.js')(slack_controller);
-
+//require('./slack_bot.js')(slack_controller);
+require('./twilio.js')(twilioController);
 
 console.log('I AM ONLINE! COME TALK TO ME: http://localhost:' + (process.env.PORT || 1080))
 
