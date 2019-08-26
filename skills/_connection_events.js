@@ -10,11 +10,11 @@ module.exports = function(controller) {
       bot.startConversation(message, function(err, convo) {
 
         convo.say({
-          text: 'Hello human! I am brand new Botkit bot, ready to be customized to your needs!',
+          text: 'Olá humano! Meu nome é Lia, me mande um oi!!',
           quick_replies: [
             {
-              title: 'Help',
-              payload: 'help',
+              title: 'Oi',
+              payload: 'Oi',
             },
           ]
         });
@@ -24,7 +24,7 @@ module.exports = function(controller) {
 
     }
 
-    controller.hears(['help','contact','documentation','docs','community'], 'message_received', function(bot, message) {
+    controller.hears(['.*','contact','documentation','docs','community'], 'message_received', function(bot, message) {
 
       bot.startConversation(message, function(err, convo) {
 
