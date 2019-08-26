@@ -81,9 +81,9 @@ if (process.env.MONGO_URI) {
 var slack_controller = Botkit.slackbot(slack_options);
 //var twilioController = Botkit.twiliosmsbot(twilioOptions);
 
-require("./web_bot.js")(controller);
+//require("./web_bot.js")(controller);
 require("./slack_bot.js")(slack_controller);
-require("./twilio.js")(twilioController);
+//require("./twilio.js")(twilioController);
 
 console.log(
   "I AM ONLINE! COME TALK TO ME: http://localhost:" + (process.env.PORT || 1080)
