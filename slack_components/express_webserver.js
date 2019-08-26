@@ -43,7 +43,7 @@ module.exports = (controller)=>{
     var server = http.createServer(webserver);
 
     server.listen(process.env.PORT || 8765, null, function(){
-        console.log('Webhook Slack está escutando em  http://localhost:' + process.env.SLACK_PORT || 3000);
+        console.log('Webhook Slack está escutando em  http://localhost:' + process.env.PORT || 3000);
 
     });
     

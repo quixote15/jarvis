@@ -37,7 +37,7 @@ module.exports = (controller)=>{
       ///  require(`/slack_skills/${file}`)(controller);
     });
 
-    require('./skills/nlu_processing')(controller);
+    require('./slack_skills/slack_nlu')(controller);
 
 
     
