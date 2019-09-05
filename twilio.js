@@ -7,7 +7,7 @@ const client = require("twilio")(
 const axios = require("axios");
 
 module.exports = controller => {
-  let bot = controller.spawn({}); //create a bot instance
+ // let bot = controller.spawn({}); //create a bot instance
 
   var rasa = require("./skills/midleware-rasa")({
     rasa_uri: "http://localhost:5005",
@@ -15,7 +15,7 @@ module.exports = controller => {
   });
 
   controller.middleware.receive.use(rasa.receive);
-
+/*
   controller.on("message_received", function(bot, message) {
     console.log("mensagem saas:", message);
     const { replies, from, to } = message;
@@ -45,6 +45,8 @@ module.exports = controller => {
     });
     //bot.startConversation()
   });
+*/
+  require('./skills/nlu_processing')(controller);
 
   controller.setupWebserver(process.env.TWILIO_PORT, function(err, webserver) {
     controller.createWebhookEndpoints(controller.webserver, bot, function() {
