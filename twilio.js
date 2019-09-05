@@ -19,30 +19,27 @@ module.exports = controller => {
   controller.on("message_received", function(bot, message) {
     console.log("mensagem saas:", message);
     const { replies, from, to } = message;
+    //console.log(replies)
+    replies.forEach(answer => {
+      console.log("text:", answer.text || answer.image);
+      const { text, image } = answer;
+      const reply = {
+        text,
+        files: [
+          {
+            url: image,
+            image: !!image
+          }
+        ]
+      };
 
-
-    bot.startConversation(message, function(err, convo) {
-      
-      replies.map(async (answer) => {
-        console.log("text:", answer.text || answer.image);
-        const { text, image } = answer;
-        const reply = {
-          text,
-          files: [
-            {
-              url: image,
-              image: !!image
-            }
-          ]
-        };
-      
-        convo.say({
+      client.messages
+        .create({
           body: text,
           from: to,
           to: from
         });
 
-      });
 
     });
     
