@@ -15,37 +15,39 @@ module.exports = controller => {
   });
 
   controller.middleware.receive.use(rasa.receive);
-/*
+
   controller.on("message_received", function(bot, message) {
     console.log("mensagem saas:", message);
     const { replies, from, to } = message;
-    //console.log(replies)
-    replies.map(async (answer) => {
-      console.log("text:", answer.text || answer.image);
-      const { text, image } = answer;
-      const reply = {
-        text,
-        files: [
-          {
-            url: image,
-            image: !!image
-          }
-        ]
-      };
 
-      await client.messages
-        .create({
+
+    bot.startConversation(message, function(err, convo) {
+      
+      replies.map(async (answer) => {
+        console.log("text:", answer.text || answer.image);
+        const { text, image } = answer;
+        const reply = {
+          text,
+          files: [
+            {
+              url: image,
+              image: !!image
+            }
+          ]
+        };
+      
+        convo.say({
           body: text,
           from: to,
           to: from
-        })
-        .then(message => console.log(`enviou a mensagem ` + message.sid))
-        .done();
-      console.log(`recebeu hi,hello`, message);
+        });
+
+      });
+
     });
-    //bot.startConversation()
+    
   });
-*/
+
   require('./skills/nlu_processing')(controller);
 
   controller.setupWebserver(process.env.TWILIO_PORT, function(err, webserver) {
