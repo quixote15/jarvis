@@ -20,7 +20,7 @@ module.exports = controller => {
     console.log("mensagem saas:", message);
     const { replies, from, to } = message;
     //console.log(replies)
-    replies.forEach(answer => {
+    replies.map(async (answer) => {
       console.log("text:", answer.text || answer.image);
       const { text, image } = answer;
       const reply = {
@@ -33,7 +33,7 @@ module.exports = controller => {
         ]
       };
 
-      client.messages
+      await client.messages
         .create({
           body: text,
           from: to,
