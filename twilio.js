@@ -7,7 +7,7 @@ const client = require("twilio")(
 const axios = require("axios");
 
 module.exports = controller => {
- // let bot = controller.spawn({}); //create a bot instance
+  let bot = controller.spawn({}); //create a bot instance
 
   var rasa = require("./skills/midleware-rasa")({
     rasa_uri: "http://localhost:5005",
