@@ -1,6 +1,6 @@
 module.exports = function(controller) {
   var rasa = require("./midleware-rasa")({
-    rasa_uri: "http://165.22.220.204:5005",
+    rasa_uri: "http://159.65.239.177:5005",
     rasa_project: "jarvis"
   });
   controller.middleware.receive.use(rasa.receive);
@@ -16,7 +16,8 @@ module.exports = function(controller) {
       //  console.log("text:", answer.text || answer.image);
       //  console.log("message:", message);
 
-        const { text, image } = answer;
+        let { text = '', image } = answer;
+        text = !!image ? 'Imóvel' : text;
         const reply = {
           text,
           replyWithTyping: true,
@@ -27,6 +28,8 @@ module.exports = function(controller) {
             }
           ]
         };
+
+        console.log('Botkit Reply: ', reply)
 
         convo.say(reply);
 
