@@ -345,6 +345,13 @@
 
         that.input = document.getElementById('messenger_input');
 
+        that.sendButton = document.getElementById('sendButton');
+
+        that.sendButton.addEventListener("click", function(event){
+          event.preventDefault();
+          Botkit.send(Botkit.input.value, event);
+        });
+
         that.focus();
 
         that.on('connected', function() {
