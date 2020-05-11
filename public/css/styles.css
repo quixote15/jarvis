@@ -10,6 +10,14 @@ html {
   background-color: #FFF;
   font-family: 'helvetica', sans-serif; }
 
+  #messenger_input:focus {
+    box-shadow: 0 1px 0 0 #616efe;
+  }
+
+ .primary-bg {
+    background-color: #616efe !important;
+  }
+
 .wrapper {
   position: relative;
   max-width: 1000px;
@@ -101,8 +109,6 @@ a.button {
 /* chat client */
 #message_window {
   background: #FFFFFF;
-  border-left: 1px solid #CCC;
-  border-right: 1px solid #CCC;
   /*height: 500px;
   width: 320px;*/
   height: 100%;
@@ -147,7 +153,6 @@ a.button {
       margin: 0.25rem;
       clear: both; }
   #message_window footer {
-    border-top: 1px solid #CCC;
     padding: 0.25rem; }
     #message_window footer input[type="text"] {
       flex-grow: 1;
@@ -170,7 +175,7 @@ a.button {
   #message_window #message_template {
     display: none; }
   #message_window .message {
-    font-size: 1.5rem;
+    font-size: 1rem;
     padding: 0.5rem;
     font-family: "Source Sans Pro",Helvetica,Arial,Sans-Serif;
     line-height: 2rem;
@@ -208,7 +213,7 @@ a.button {
     margin-bottom: 0; }
   #message_window .message.outgoing {
     float: right;
-    background: #a795ef;
+    background: #616EFE;
     color: white; }
   #message_window #message_replies {
     text-align: center;
