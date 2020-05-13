@@ -14,6 +14,15 @@ html {
     box-shadow: 0 1px 0 0 #616efe;
   }
 
+  .back-link {
+    padding-left: 0.5rem;
+  }
+
+  #back-link:active,  #back-link:hover  {
+    color: white !important;
+    text-decoration: none !important;
+  }
+
  .primary-bg {
     background-color: #616efe !important;
   }
@@ -108,10 +117,9 @@ a.button {
 
 /* chat client */
 #message_window {
-  background: #FFFFFF;
   /*height: 500px;
   width: 320px;*/
-  height: 100%;
+  height: 90%;
   width: 100%;
   /*margin: 2rem auto;*/
   display: flex;
