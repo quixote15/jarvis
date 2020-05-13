@@ -6,7 +6,7 @@ module.exports = function(controller) {
   controller.middleware.receive.use(rasa.receive);
 
   controller.on("message_received", async function(bot, message) {
-    //console.log("mensagem saas:", message);
+   console.log("RASA RESPONDEU:", message);
 
     const { replies } = message;
 
