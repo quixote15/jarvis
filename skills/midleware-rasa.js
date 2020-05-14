@@ -44,7 +44,9 @@ module.exports = config => {
 
           throw new Error('Rasa respondeu vazio.');
        //   message.entities = response.entities
-          
+        })
+        .catch(error => {
+          next(error);
         })
     },
 
