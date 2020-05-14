@@ -5,6 +5,10 @@ module.exports = function(controller) {
   });
   controller.middleware.receive.use(rasa.receive);
 
+  controller.on('receive_error', function(err, bot, message) {
+    bot.reply(message, `There was an error processing your request. Please try again later. Error: ${err.toString()}`);
+    });
+
   controller.on("message_received", async function(bot, message) {
    console.log("RASA RESPONDEU:", message);
 
