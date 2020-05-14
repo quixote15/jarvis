@@ -37,10 +37,14 @@ module.exports = config => {
       request(options)
         .then(response => {
           console.log('Rasa response', response)
-          message.replies = response;
+          if(response.length > 0) {
+            message.replies = response;
+            next()
+          }
+
+          throw new Error('Rasa respondeu vazio.');
        //   message.entities = response.entities
           
-          next()
         })
     },
 
