@@ -10,11 +10,19 @@ module.exports = function(controller) {
     });
 
   controller.on("message_received", async function(bot, message) {
-   console.log("RASA RESPONDEU:", message);
+   console.log("RASA RESPONDEU:", message.replies);
 
     const { replies } = message;
 
     bot.startConversation(message, function(err, convo) {
+
+      console.log('ENTROU startConversation', message);
+      console.log('ENTROU startConversation error', err);
+
+      if(err) {
+        return convo.say(reply);
+      }
+
       for (var i = 0; i < replies.length; i++) {
         const answer = replies[i];
       //  console.log("text:", answer.text || answer.image);
