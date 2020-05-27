@@ -10,7 +10,7 @@ module.exports = function(controller) {
       bot.startConversation(message, function(err, convo) {
 
         convo.say({
-          text: 'Olá humano! Meu nome é Lia, me mande um oi!!',
+          text: 'Olá humano! Meu nome é Fê do Fechô, me mande um oi, por favor.',
           quick_replies: [
             {
               title: 'Oi',

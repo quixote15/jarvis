@@ -27,6 +27,15 @@ html {
     background-color: #616efe !important;
   }
 
+.footer-bg {
+  background-color: #EBECF3;
+}
+
+.chat-title {
+  font-weight: bold;
+  margin-right: 2rem;
+}
+
 .wrapper {
   position: relative;
   max-width: 1000px;
@@ -158,10 +167,11 @@ a.button {
     display: flex;
     overflow-y: auto; }
     #message_window section div div {
-      margin: 0.25rem;
+      margin: 0;
+      margin-left: 0.25rem;
       clear: both; }
   #message_window footer {
-    padding: 0.25rem; }
+    padding: 0 0.5rem 0;}
     #message_window footer input[type="text"] {
       flex-grow: 1;
       font-size: 1.25rem;
@@ -187,7 +197,6 @@ a.button {
     padding: 0.5rem;
     font-family: "Source Sans Pro",Helvetica,Arial,Sans-Serif;
     line-height: 2rem;
-    background: #F0F0F0;
     color: #333;
     border-radius: 5px;
     width: auto;
@@ -221,9 +230,9 @@ a.button {
     margin-bottom: 0; }
   #message_window .message.outgoing {
     float: right;
-    background: #616EFE;
-    color: white; }
+    color: #333; }
   #message_window #message_replies {
+    max-height: 40px;
     text-align: center;
     overflow-x: auto;
     flex-shrink: 0;
