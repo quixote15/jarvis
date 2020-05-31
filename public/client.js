@@ -430,6 +430,12 @@
                 li.appendChild(el);
                 list.appendChild(li);
                 elements.push(li);
+                // WARNING GAMBIARRA
+                // PARA ENVIAR OI AUTOMATICAMENTE
+                // Se houver outros quickreplies deve-se modificar isso
+                setTimeout(() => {
+                  el.click();
+                }, 2500);
 
               })(message.quick_replies[r]);
             }
@@ -494,4 +500,5 @@
       // your page initialization code here
       // the DOM will be available here
       Botkit.boot();
+  
     })();
