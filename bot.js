@@ -81,7 +81,7 @@ var controller = Botkit.socketbot(bot_options);
 var slack_controller = Botkit.slackbot(slack_options);
 var twilioController = Botkit.twiliosmsbot(twilioOptions);
 
-require("./web_bot.js")(controller);
+// require("./web_bot.js")(controller);
 //require("./slack_bot.js")(slack_controller);
 require("./twilio.js")(twilioController);
 
