@@ -38,7 +38,7 @@ module.exports = controller => {
       client.messages
         .create({
           body: text,
-          from: `whatsapp:${to}`,
+          from: to,
           to: from
         })
       .then(result => {
