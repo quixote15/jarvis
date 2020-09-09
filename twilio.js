@@ -21,7 +21,7 @@ module.exports = controller => {
     const { replies, from, to } = message;
     //console.log(replies)
     replies.forEach(answer => {
-      console.log("text:", answer.text || answer.image);
+      // console.log("text:", answer.text || answer.image);
       const { text, image } = answer;
       const reply = {
         text,

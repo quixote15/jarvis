@@ -37,7 +37,7 @@ module.exports = config => {
 
       request(options)
         .then(response => {
-          console.log('Rasa response', response)
+         // console.log('Rasa response', response)
           if(response.length > 0) {
             message.replies = response;
             next()
