@@ -10,7 +10,7 @@ module.exports = controller => {
   let bot = controller.spawn({}); //create a bot instance
 
   var rasa = require("./skills/midleware-rasa")({
-    rasa_uri: "https://fe.fecho.app",
+    rasa_uri: "https://fe.fecho.app/rasa",
     rasa_project: "jarvis"
   });
 
