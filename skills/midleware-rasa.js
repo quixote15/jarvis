@@ -25,7 +25,7 @@ module.exports = config => {
       debug('Sending message to Rasa', message.text)
       const options = {
         method: 'POST',
-        uri: `${config.rasa_uri}`,
+        uri: `${config.rasa_uri}/webhooks/rest/webhook`,
         body: {
           message: message.text,
           sender: message.user,
