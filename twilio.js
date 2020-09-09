@@ -17,7 +17,7 @@ module.exports = controller => {
   controller.middleware.receive.use(rasa.receive);
 
   controller.on("message_received", function(bot, message) {
-    console.log("mensagem saas:", message);
+   // console.log("mensagem saas:", message);
     const { replies, from, to } = message;
     //console.log(replies)
     replies.forEach(answer => {
@@ -33,7 +33,7 @@ module.exports = controller => {
         ]
       };
 
-      console.log('numero da fe: ', to);
+   //   console.log('numero da fe: ', to);
 
       client.messages
         .create({
@@ -42,12 +42,12 @@ module.exports = controller => {
           to: from
         })
       .then(result => {
-        console.log('ENVIOU MENSAGEM PARA WHATS: ', result);
+     //   console.log('ENVIOU MENSAGEM PARA WHATS: ', result);
         console.log('ENVIOU MENSAGEM PARA WHATS: ');
       })
       .catch(error => {
         console.log('ERROR AO ENVIAR');
-        console.log('ERROR AO ENVIAR', error);
+      //  console.log('ERROR AO ENVIAR', error);
         console.log('ERROR AO ENVIAR');
       });
 
