@@ -38,7 +38,16 @@ module.exports = controller => {
           body: text,
           from: to,
           to: from
-        });
+        })
+      .then(result => {
+        console.log('ENVIOU MENSAGEM PARA WHATS: ', result);
+        console.log('ENVIOU MENSAGEM PARA WHATS: ');
+      })
+      .catch(error => {
+        console.log('ERROR AO ENVIAR');
+        console.log('ERROR AO ENVIAR', error);
+        console.log('ERROR AO ENVIAR');
+      });
 
 
     });

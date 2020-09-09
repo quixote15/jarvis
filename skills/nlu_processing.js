@@ -1,6 +1,6 @@
 module.exports = function(controller) {
   var rasa = require("./midleware-rasa")({
-    rasa_uri: "http://159.65.239.177:5005",
+    rasa_uri: "https://fe.fecho.app",
     rasa_project: "jarvis"
   });
   controller.middleware.receive.use(rasa.receive);
