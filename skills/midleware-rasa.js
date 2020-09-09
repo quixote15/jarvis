@@ -22,6 +22,7 @@ module.exports = config => {
       }
 
       console.log('USUÁRIO: ', message.user)
+      console.log('USUÁRIO: ', message.text)
      // console.log('bot', bot)
       debug('Sending message to Rasa', message.text)
       const options = {

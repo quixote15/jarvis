@@ -56,7 +56,7 @@ module.exports = controller => {
     
   });
 
-  require('./skills/nlu_processing')(controller);
+  // require('./skills/nlu_processing')(controller);
 
   controller.setupWebserver(process.env.TWILIO_PORT, function(err, webserver) {
     controller.createWebhookEndpoints(controller.webserver, bot, function() {
