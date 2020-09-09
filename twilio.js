@@ -33,10 +33,12 @@ module.exports = controller => {
         ]
       };
 
+      console.log('numero da fe: ', to);
+
       client.messages
         .create({
           body: text,
-          from: to,
+          from: `whatsapp:${to}`,
           to: from
         })
       .then(result => {
